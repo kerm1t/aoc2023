@@ -2,10 +2,38 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include <string>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::ifstream f;
+    f.open("data.txt");
+    std::string line;
+    int sum = 0;
+    while (f) {
+      std::getline(f, line);
+      if (f) { // hmm, leider erforderlich
+        char buf[100];
+        int num[2] = { 0, 0 };
+        int ndigits = 0;
+        for (auto i:line) {
+          if (isdigit(i)) {
+            if (ndigits>0)
+              num[1] = i - '0'; // overwrite the second digit)
+            else
+              num[0] = i-'0';
+            ndigits++;
+          }
+        }
+        if (ndigits == 1) num[1] = num[0];
+        int nline = num[0] * 10 + num[1];
+        sum += nline;
+        std::cout << line << ": " << nline << '\n';//f.tellg() << '\n';
+      }
+    }
+    f.close();
+    std::cout << "sum = " << sum << '\n';
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
