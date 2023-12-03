@@ -59,9 +59,9 @@ void part1(bool b_numberz_as_string) {
   std::cout << "sum = " << sum << '\n';
 }
 
-int main()
+int main() // day 1 is for warmup and to process a file, get a line and parse this line char-wise
 {
-  part1(true); // b_numberz_as_string
+  part1(true); // b_numberz_as_string - true doesn't work yet, s. above
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
