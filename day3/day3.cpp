@@ -43,7 +43,7 @@ bool check_connecivity_8(int r, int c) {
   return b1 || b2 || b3 || b4 || b5 || b6 || b7 || b8;
 }
 
-int main()
+int main() // might be the start of a rogue-like game :-)
 {
     std::cout << "day3\n";
     std::ifstream f;
