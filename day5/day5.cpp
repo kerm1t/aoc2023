@@ -52,6 +52,7 @@ void prettyprint(std::string line, std::vector<long long> v) {
   std::cout << line << '\n';
 }
 
+// --> (memory) mapping, states
 int main()
 {
   std::cout << "day5\n";
