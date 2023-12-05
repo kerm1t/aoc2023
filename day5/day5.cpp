@@ -5,7 +5,6 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <algorithm>
 
 // 2do: prepare next day
 // 2do: put fcts into header file
@@ -61,8 +60,6 @@ int main()
   f.open("data.txt");
   std::string line;
   int sum = 0;
-//  int state = 0;
-//  bool b_statenew = false;
   std::vector<std::string> seeds1;
   std::vector<long long> iseeds;
   std::vector<mapentry> map;
@@ -71,7 +68,6 @@ int main()
     if (f) { // read last line only once
 //      std::cout << line << '\n';
       if (strncmp(line.c_str(), "seeds:", 6) == 0) {
-//        state = 0;
         seeds1 = split(line.c_str(), ' ');
         for (int i = 1; i < seeds1.size(); i++) iseeds.push_back(stoll(seeds1[i]));
       }
@@ -79,12 +75,10 @@ int main()
       if (line.length() == 0) runstate = other;
 
       if (runstate == process) {
-        // update
         if (map.size() > 0) {
           for (int i = 0; i < iseeds.size(); i++)
             iseeds[i] = do_map(iseeds[i],map);
         }
-//        b_statenew = false;
         prettyprint(line, iseeds);
         map.clear();
         runstate = readmap;
@@ -97,46 +91,27 @@ int main()
       }
 
       if (strncmp(line.c_str(), "seed-to-soil map:", 17) == 0) {
-//        b_statenew = true;
-//        state = 1;
         prettyprint(line, iseeds); 
         runstate = readmap;// process;
       }
       if (strncmp(line.c_str(), "soil-to-fertilizer map:",23) == 0) {
-//        b_statenew = true;
-//        state = 2;
         runstate = process;
       }
       if (strncmp(line.c_str(), "fertilizer-to-water map:", 24) == 0) {
-//        b_statenew = true;
-//        state = 3;
         runstate = process;
       }
       if (strncmp(line.c_str(), "water-to-light map:",19) == 0) {
-//        b_statenew = true;
-//        state =4;
         runstate = process;
       }
       if (strncmp(line.c_str(), "light-to-temperature map:", 25) == 0) {
-//        b_statenew = true;
-//        state = 5;
         runstate = process;
-//        prettyprint(line, iseeds);
       }
       if (strncmp(line.c_str(), "temperature-to-humidity map:", 28) == 0) {
-//        b_statenew = true;
-//        state = 6;
         runstate = process;
-//        prettyprint(line, iseeds);
       }
       if (strncmp(line.c_str(), "humidity-to-location map:", 25) == 0) {
-//        b_statenew = true;
-//        state = 7;
         runstate = process;
-//        prettyprint(line, iseeds);
       }
-    
-
     }
   }
   // process last step
