@@ -57,7 +57,7 @@ int main()
         std::vector<std::string> card = split(gm[1].c_str(), ' ');
 
         int points = 0;
-        for (int i = 1; i < card.size(); i++) { // start with 1 to omit leading space
+        for (int i = 1; i < card.size(); i++) { // start with 1 to omit leading space --> trim
           if (std::find(win.begin(), win.end(), card[i]) != win.end()) {
             std::cout << card[i] << ", ";
 // ha, wong:            if (i == 1) points = 1; else points *= 2;
