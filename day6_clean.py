@@ -14,7 +14,6 @@ Distance = [   430 ,  1036 ,  1307 ,  1150 ]
 # Distance =[  9 , 40 , 200,10]
 
 
-race = 3
 wins = np.zeros(4)
 for race in range(4):
     dst = np.zeros(Time[race])
