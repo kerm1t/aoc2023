@@ -68,7 +68,7 @@ for ind in df.index:
 
 df['ps'] = ps
 df['cs'] = cs
-df2 = df.sort_values(['ps', 'cs'], ascending = [True, True])
+df2 = df.sort_values(['ps', 'cs'], ascending = [True, True]) # i.e. sort by "rank"
 df2 = df2.reset_index(drop=True)
 
 winnings = []
