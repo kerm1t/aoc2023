@@ -32,3 +32,7 @@ while(bnotfound):
     istep+=1
     if iinst>282: # simply tested #instructions
         iinst=0
+
+# - make a plan first
+# - run with the demo data
+# - do not reuse variables
