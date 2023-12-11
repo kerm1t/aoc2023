@@ -17,7 +17,7 @@ def dec2hex(dec):
     return hex(dec).split('x')[-1]
 
 def camel_score(cards): # e.g. "2" gets score 0, "T" gets a score of 8
-    cs = str(dec2hex(_rorder.index(cards[0])))
+    cs  = str(dec2hex(_rorder.index(cards[0])))
     cs += str(dec2hex(_rorder.index(cards[1])))
     cs += str(dec2hex(_rorder.index(cards[2])))
     cs += str(dec2hex(_rorder.index(cards[3])))
